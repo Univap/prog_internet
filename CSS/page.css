@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    display: flex;
+    min-height: 100vh;
+    margin-top: 20px;
+    justify-content: center;
+    background: url('../Imagens/Univap.png')no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5; /* adjust this value to make the image darker or lighter */
+}
+li{
+    list-style: none;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 1rem;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    z-index: 99;
+}
+.navbar{
+    width: 100%;
+    height: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.logo{
+    text-decoration: none;
+    font-size: 2rem;
+    color: #fff;
+    user-select: none;
+}
+.navbar .links{
+    display:flex;
+    position: relative;
+    padding-left: 32vw;
+    gap: 2rem;
+}
+.navbar .toggle_btn{
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display:block;
+}
+.links a{
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 1.2vh;
+}
+.links a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s; 
+}
+.links a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+header .btnLogin-popup{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    transition: .5s;
+}
+header .btnLogin-popup:hover{
+    background: #fff;
+    color: #162938;
+}
+.dropdown_menu{
+    display: block;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: (255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.dropdown_menu.open{
+    height: 90px;
+}
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown_menu a{
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 1.2vh;
+}
+.dropdown_menu a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s; 
+}
+.dropdown_menu a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+.dropdown_menu .btnLogin-popup{
+    width: 100%;
+    justify-content: center;
+}
+
+@media (max-width: 576px){
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+
+}
+.card {
+    position: relative;
+    border-radius: 20px;
+    background: #bbb3e9;
+    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    padding: 20px ;
+    margin: 60px;
+    width: 60%;
+}
