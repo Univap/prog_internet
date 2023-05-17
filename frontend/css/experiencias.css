@@ -2,17 +2,17 @@ label {
     font-weight: bold;
   }
 
-  textarea {
+textarea {
     height: 30vh;
     width: 30vw;
     border-radius: 10px;      
   }
 
-  h1 {
+h1 {
     font-family: sans-serif;
   }
 
-  .container-cadastro {
+.container-cadastro {
     display: flex ;
     flex-direction: column;
     justify-content: space-between;
@@ -28,24 +28,24 @@ label {
     border-radius: 10px;
   }
 
-  .header {
+.header {
     display: flex;
     flex-direction: column;
     justify-content: flex-start; 
     align-items: flex-start; 
   }    
 
-  .logo{
+.logo{
     height: auto;
     width: 8em;
   }
 
-  .subtitle{
+.subtitle{
     color: darkgrey;
     margin-top: 0px;
   }
 
-  .dates-forms{
+.dates-forms{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

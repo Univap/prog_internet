@@ -1,5 +1,5 @@
-const button = document.getElementById("btn-salvar");
-    button.onclick = enviarDados
+const buttonSalvar = document.getElementById("btn-salvar");
+buttonSalvar.onclick = enviarDados
 
     function enviarDados() {
       // Recupera os valores dos campos do formulário
