@@ -95,6 +95,9 @@ var div = document.getElementById("areasobre");
 botao.addEventListener("click", function() {
     if (div.style.display === "none") {
         div.style.display = "flex";
+        divconf.style.display = "none";
+        editar.style.display = "none";
+        Deletarconta.style.display = "none";
     } else {
         div.style.display = "none";
     }
@@ -108,10 +111,43 @@ const div1 = document.getElementById("areasobre1");
 
 botao1.addEventListener("click", () => {
   div1.style.display = "flex";
-  div.style.display = "none";
+  divconf.style.display = "none";
+  editar.style.display = "none";
+  Deletarconta.style.display = "none";
 });
 
 botao2.addEventListener("click", () => {
   div1.style.display = "none";
-  div.style.display = "flex";
+  divconf.style.display = "flex";
+});
+
+//Abrir configuração
+
+const confbtn = document.getElementById("configurarbtn");
+const divconf = document.getElementById("configurar");
+
+
+confbtn.addEventListener("click", function() {
+  if (divconf.style.display === "none") {
+      divconf.style.display = "flex";
+      div1.style.display = "none";
+      div.style.display = "none";
+  } else {
+      divconf.style.display = "none";
+  }
+});
+
+//
+var contaedit = document.getElementById("contaedit");
+var editar = document.getElementById("editar");
+var Deletarconta = document.getElementById("Deletarconta");
+
+contaedit.addEventListener("click", function() {
+    if (editar.style.display === "none") {
+        editar.style.display = "flex";
+        Deletarconta.style.display = "flex";
+    } else {
+        editar.style.display = "none";
+        Deletarconta.style.display = "none";
+    }
 });
