@@ -443,6 +443,16 @@ header .btnLogin-popup:hover{
     pointer-events: none;
     display: flex;
 }
+.Sobre .input-box-select .txt{
+    position: absolute;
+    top: 20%;
+    left: 5px;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 500;
+    pointer-events: none;
+    display: flex;
+}
 .Sobre .input-box3 .txt{
     position: absolute;
     top: -8%;
@@ -507,6 +517,14 @@ header .btnLogin-popup:hover{
     border-bottom: 2px solid #ffffff;
     margin-top: 10px;
 }
+.Sobre .input-box-select{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-left: 2rem;
+    border-bottom: 2px solid #ffffff;
+    margin-top: 10px;
+}
 .Sobre .input-box3{
     position: relative;
     width: 88%;
@@ -549,25 +567,25 @@ input#input_2_0:checked + label {
       background-image: url('../Imagens/view.png');
 }
 
-/* Estilo bÃ¡sico da barra de rolagem */
+/* Estilo bÃƒÂ¡sico da barra de rolagem */
 ::-webkit-scrollbar {
     width: 10px; /* Largura da barra de rolagem */
 }
 
-/* Estilo do botÃ£o de rolagem */
+/* Estilo do botÃƒÂ£o de rolagem */
 ::-webkit-scrollbar-thumb {
-    background-color: #888; /* Cor do botÃ£o de rolagem */
-    border-radius: 5px; /* Raio do botÃ£o de rolagem */
+    background-color: #888; /* Cor do botÃƒÂ£o de rolagem */
+    border-radius: 5px; /* Raio do botÃƒÂ£o de rolagem */
 }
 
-/* Estilo da Ã¡rea da barra de rolagem (background) */
+/* Estilo da ÃƒÂ¡rea da barra de rolagem (background) */
 ::-webkit-scrollbar-track {
-    background-color: #f1f1f1; /* Cor da Ã¡rea da barra de rolagem */
+    background-color: #f1f1f1; /* Cor da ÃƒÂ¡rea da barra de rolagem */
 }
 
-/* Estilo do botÃ£o de rolagem ao passar o mouse */
+/* Estilo do botÃƒÂ£o de rolagem ao passar o mouse */
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* Cor do botÃ£o de rolagem ao passar o mouse */
+    background-color: #555; /* Cor do botÃƒÂ£o de rolagem ao passar o mouse */
 }
 .Salvarsobre{
     color: #fff;
@@ -713,4 +731,23 @@ input#input_2_0:checked + label {
     flex-wrap: nowrap;
     justify-content: flex-end;
     align-items: center;
+}
+.input_txt-select{
+    height: 60%;
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 24px 0 0 0;
+    padding: 0px 5px 3px 5px;
+}
+select option {
+    font-size: 1em;
+    color: #fff;
+    font-weight: 600;
+    background-color: #000;
 }
