@@ -1,0 +1,122 @@
+.button-component{
+  padding: .5rem;
+  background-color: rgb(255, 196, 230);
+  border: 2px solid rgb(245, 152, 206);
+}
+.button-component:hover{
+  cursor: pointer;
+  transform: scale(1.25);
+}     
+nav{
+  width: clamp(4.75rem,20vw, 7rem);
+  position: fixed;
+  display: inline-flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 196);
+  justify-content: space-between;
+  border-radius: 5px 10px 15px 20px;
+}
+nav a{
+  color:black;
+  padding: clamp(.25rem, 1vw, 1rem); 
+  text-decoration: none;
+  font-size: clamp(.7rem, 2vw, 1rem);
+}
+nav a:hover{
+  cursor: pointer;
+  transform: scale(1.125);
+}
+nav a.active{
+  text-decoration: underline;
+}
+
+.voltar-component{
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+}
+
+voltar-component{
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+}
+
+.voltar-component-tag{
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+}
+
+@media (max-width:560px){
+  /* .header{
+    margin-left: calc(12.5% - 0.5rem);
+    margin-bottom: 1rem;
+    width: 80px;
+    height: 80px;
+  }
+  .header:hover{
+    cursor: pointer;
+  }
+  .header::after{
+    content: '';
+    margin-left: calc(-80px/2 - 16px);
+    display: block;
+    margin-top: calc(80px / 2.25 - 80px / 2);
+    width: 4px;
+    height: 64px;
+    background-color: black;
+    transform: rotate(90deg);
+  }
+  .header::before{
+    content: '';
+    margin-right: calc(-80px/2 - 16px + 4px);    
+    display: block;
+    margin-top: calc(-2*(80px / 2.5 - 80px / 2));
+    width: 4px;
+    height: 64px;
+    background-color: black;
+    transform: rotate(90deg);
+  }
+  .header.clicked::after{
+    content: '';
+    margin-left: calc(-80px/2 - 16px);
+    margin-top: 8px;
+    display: block;
+    width: 4px;
+    height: 64px;
+    background-color: black;
+    transform: rotate(45deg);
+  }
+  .header.clicked::before {
+    content: '';
+    margin-right: calc(-80px/2 - 16px);
+    margin-top: 8px;
+    display: block;
+    width: 4px;
+    height: 64px;
+    background-color: black;
+    transform: rotate(135deg);
+  } */
+  nav{
+    margin: 0;
+    width: clamp(4.75rem,20vw, 7rem);
+    flex-direction: column;
+  }
+  nav a{
+    background-color: rgb(255, 255, 196);
+    width: 100%;
+    height: 80px;
+    z-index: 1;
+    margin-left: -0.5rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+  }
+  nav a:hover{
+    background-color: rgb(250, 250, 90);
+    transform: scale(1);   
+  }
+}
