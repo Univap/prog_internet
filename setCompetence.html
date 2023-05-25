@@ -87,10 +87,26 @@
           link.setAttribute("class", link.getAttribute("class") + " active");
         }
       });
+      const competences = [];
+
+      const get_competencias_select = async () => {
+        await fetch("http://127.0.0.1:3001/competencias")
+          .then((res) => res.json())
+          .then((data) => {
+            data.forEach((obj) => {
+              const option = document.createElement("option");
+              option.value = obj.codigo_competencia;
+              option.innerText = obj.nome_competencia;
+              select.appendChild(option);
+              competences.push(obj);
+            });
+          });
+      };
+      get_competencias_select();
 
       const compt_bloco = document.querySelector(".competencias");
       const get_competencias = async () => {
-        await fetch("http://127.0.0.1:3001/self-competencias")
+        await fetch("http://127.0.0.1:3001/self-competencias/123456")
           .then((res) => res.json())
           .then((data) =>
             data.forEach((obj) => {
@@ -99,7 +115,7 @@
               div_competencias.setAttribute("key", obj.codigo_competencia);
 
               const header = document.createElement("span");
-              header.innerText = obj.nome;
+              header.innerText = obj.competencias;
               div_competencias.appendChild(header);
 
               const button_remove = document.createElement("button");
@@ -107,7 +123,7 @@
               button_remove.setAttribute("class", "buttonRemove");
               button_remove.addEventListener("click", async () => {
                 await fetch(
-                  `http://127.0.0.1:3001/self-competencias/${obj.codigo_competencia}`,
+                  `http://127.0.0.1:3001/self-competencias/123456/${obj.idCompetencias}`,
                   {
                     method: "DELETE",
                   }
@@ -118,7 +134,6 @@
                       compt_bloco.removeChild(compt_bloco.firstChild);
                     }
                     get_competencias();
-                    console.log(data);
                   });
               });
               div_competencias.appendChild(button_remove);
@@ -128,28 +143,14 @@
           );
       };
       get_competencias();
+      
       const select = document.querySelector("#select");
-      const get_competencias_select = async () => {
-        await fetch("http://127.0.0.1:3001/competencias")
-          .then((res) => res.json())
-          .then((data) => {
-            const competences = [];
-            data.forEach((obj) => {
-              const option = document.createElement("option");
-              console.log(obj)
-              option.value = obj.codigo_competencia;
-              option.innerText = obj.nome_competencia;
-              select.appendChild(option);
-              competences.push(obj);
-            });
-          });
-      };
-      get_competencias_select();
       const addCompetence = async () => {
-        console.log(select.value);
+        const id_competence = select.value;
+        obj_to_post = competences.find(obj => obj.codigo_competencia == id_competence);
         await fetch("http://127.0.0.1:3001/self-competencias", {
           method: "POST",
-          body: JSON.stringify({ id: select.value }),
+          body: JSON.stringify({...obj_to_post, Perfil_matricula:123456}),
           headers: { "Content-Type": "Application/json" },
         })
           .then((res) => res.json())
@@ -158,7 +159,6 @@
               compt_bloco.removeChild(compt_bloco.firstChild);
             }
             get_competencias();
-            console.log(data);
           });
       };
     </script>

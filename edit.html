@@ -107,9 +107,9 @@
           });
       };
       get_competencias();
-      select.addEventListener("change", async (e) => {
-        await competences.forEach((val) => {
-          if (val.id === parseInt(e.target.value)) {
+      select.addEventListener("change", (e) => {
+        competences.forEach((val) => {
+          if (val.codigo_competencia === parseInt(e.target.value)) {
             name_competence.value = val.nome_competencia;
             description_competence.value = val.descricao_competencia;
           }
@@ -152,7 +152,6 @@
               },
               onClick: function () {}, // Callback after click
             }).showToast();
-            console.log(data);
           });
         });
       };
@@ -186,7 +185,6 @@
               },
               onClick: function () {}, // Callback after click
             }).showToast();
-            console.log(data);
           });
         });
       };
