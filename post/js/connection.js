@@ -42,7 +42,7 @@ function removeComments() {
 }
 
 function populateComments(data) {
-    // removeComments();
+    removeComments();
 
     var tableBody = document.querySelector('#post tbody');
 

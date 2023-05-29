@@ -2,6 +2,15 @@ var express = require('express');
 var app = express();
 var mysql = require('mysql');
 var con = mysql.createConnection({host: "localhost", user: "root", password: "", database: "mydb"});
+
+con.connect((error) => {
+    if(error) {
+        console.error('Erro ao conectar ao banco de dados:', error);
+    } else {
+        console.log('Conexão bem-sucedida com o banco de dados!');
+    }
+});
+
 app.use(express.static(__dirname + '/post'));
 app.use(express.json());
 
