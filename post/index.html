@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="img/Logoprojeto_pi-removebg-preview.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/comentarios.css">
+    <title>Linkivap</title>
+</head>
+<body>
+    <div class="fotofundo">    
+        <header>
+            <div class="navbar">
+                <div class="logo">
+                    <a href="../">
+                        <img src="img/linkivap.png" width="200" height="auto">
+                    </a>
+                </div>
+                <div class="toggle_btn">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+            <div class="dropdown_menu">
+                <li><a href="Perfil.html">Perfil</a></li>
+                <li><a href="Home.html">Sair</a></li>
+            </div>
+        </header>
+        <div class="Comentarios">
+            <table id="post">
+                <tbody>
+                    <tr class="autor"></tr>
+                    <tr class="post">
+                        <!-- <td>
+                            <div class="cardpost">
+                                <text class="input_txt2">Conteudo Publicação</text>
+                            </div>
+                        </td> -->
+                    </tr>
+                    <tr class="comentar">
+                        <td colspan="3">
+                            <div class="input-box3">
+                                <textarea class="input_txt2" cols="10" rows="10" id="caixa-comentario"></textarea>           
+                            </div> 
+                            <button class="enviarcomentario" onclick="addComment()">Comentar</button>
+                        </td>
+                    </tr>
+                    <tr class="comentario">
+                        <td>
+                            <div class="fotoperfil">
+                                <img id="imagem" src="../img/Perfil.jpg">
+                            </div>
+                        </td>
+                        <td>
+                            <a>Nome com link</a>
+                            <br>
+                            <a1>Conteúdo do comentário</a1>
+                            <br>
+                            <a2>Data e hora</a2>
+                        </td>
+                        <td class="pontos">
+                            <button class="trespontos" id="trespontos">...</button>
+                            <div class="baredit" id="baredit">
+                                <button><a>Editar</a></button>
+                                <button><a>Deletar</a></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="comentario">
+                        <td>
+                            <div class="fotoperfil">
+                                <img id="imagem" src="../img/Perfil.jpg">
+                            </div>
+                        </td>
+                        <td>
+                            <a>Nome com link</a>
+                            <br>
+                            <a1>Conteúdo do comentário</a1>
+                            <br>
+                            <a2>Data e hora</a2>
+                        </td>
+                        <td class="pontos">
+                            <button class="trespontos" id="trespontos">...</button>
+                            <div class="baredit" id="baredit">
+                                <button><a>Editar</a></button>
+                                <button><a>Deletar</a></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/connection.js"></script>
+    <script src="js/comentario.js"></script>       
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
