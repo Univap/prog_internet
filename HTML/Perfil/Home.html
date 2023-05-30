@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Univap | Tinkerdinvap</title>
+        <link rel="icon" href="../Imagens/Logoprojeto_pi-removebg-preview.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../CSS/home.css">
+    </head>
+    <body>
+        <header>
+            <div class="navbar">
+                <div class="logo"><h2 href="Home.html"><img  src="../Imagens/ASEA-removebg-preview.png" width="150" height="auto"></h2></div>
+                <button class="btnLogin-popup">Login</button>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+            <div class="form-box login">
+                <h2>Login</h2>
+                <form action="#">
+                    <div class="input-box">
+                        <label class="txt">Email</label>
+                        <input class="input_txt" type="email" nome="email" required>
+                        <span class="icon">
+                            <input type='checkbox' id="input_1_1"/>
+                            <label for="input_1_1"></label> 
+                        </span>                        
+                    </div>
+                    <div class="input-box">
+                        <label class="txt">Password</label>
+                        <input class="input_txt" type="password" nome="senha" required id="myInput1">
+                        <span class="icon">
+                            <input type='checkbox' onclick="myFunction1()" name='q1_myOptions[]' id="input_1_0"/>
+                            <label for="input_1_0"></label>
+                        </span>
+                    </div>
+                    <div class="remember-forgot">
+                        <label>
+                        <span class="icon">
+                            <input type='checkbox' id="input_1_2"/>
+                            <label for="input_1_2"></label> 
+                            <label class="txt">Lembrar</label>
+                        </span>  
+                        </label>
+                        <a href="Page.html" class="recupera">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <div class="login-register">
+                        <div class="txt-register">
+                            <p>Não tem conta ainda? </p>
+                        </div>
+                        <a href="#" class="register-link">Registrar</a>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="form-box register">
+                <h2>Cadastro</h2>
+                <form action="#">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="fotoperfil">
+                                    <a>Foto de Perfil</a>
+                                    <div id="visualizacao-imagem"></div>
+                                    <div class="file-input">
+                                        <input type="file" id="input-imagem" accept="image/*">
+                                        <label for="input-imagem" id="file-label">Choose a file</label>
+                                        <div id="file-name"></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="input-box2">
+                                                <label class="txt">Nome Completo</label>
+                                                <input class="input_txt1" type="nome" nome="nome" required>
+                                                <span class="icon">
+                                                    <input type='checkbox' id="input_2_3"/>
+                                                    <label for="input_2_0"></label> 
+                                                </span>                        
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-box2">
+                                                <label class="txt">N° de Matricula</label>
+                                                <input class="input_txt1" type="matricula" nome="nome" required>
+                                                <span class="icon">
+                                                    <input type='checkbox' id="input_2_3"/>
+                                                    <label for="input_2_0"></label> 
+                                                </span>                        
+                                            </div>
+                                        </td>
+                                        <td class="nomera">
+                                            <div class="input-box2">
+                                                <label class="txt">Selecione</label>
+                                                <select class="input_txt1">
+                                                    <option value="opcao1">Aluno</option>
+                                                    <option value="opcao2">Professor</option>
+                                                    <option value="opcao3">Coordenador</option>
+                                                    <option value="opcao4">Diretor</option>
+                                                  </select>                  
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="input-box1">
+                                    <label class="txt">Email</label>
+                                    <input class="input_txtlong" type="email" nome="email" required>
+                                    <span class="icon">
+                                        <input type='checkbox'  id="input_2_1"/>
+                                        <label for="input_2_1"></label> 
+                                    </span>                        
+                                </div>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="input-box2">
+                                                <label class="txt">Senha</label>
+                                                <input class="input_txt1" type="password" nome="senha" required id="myInput2">
+                                                <span class="icon">
+                                                    <input type='checkbox' onclick="myFunction2()" name='q1_myOptions[]' id="input_2_0"/>
+                                                    <label for="input_2_0"></label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-box2">
+                                                <label class="txt">Confirmar Senha</label>
+                                                <input class="input_txt1" type="password" nome="confrm_senha" required id="myInput3">
+                                                <span class="icon">
+                                                    <input type='checkbox' onclick="myFunction3()" name='q1_myOptions[]' id="input_3_0"/>
+                                                    <label for="input_3_0"></label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="input-box3">
+                                    <label class="txt">Sobre</label>  
+                                    <textarea class="input_txt2" cols="5" rows="5" name="Sobre"  ></textarea>           
+                                </div>
+                            </td>
+                        </tr>  
+                    </table>
+                    <div class="termecondicion">
+                        <label>
+                        <span class="icon">
+                            <input type='checkbox' id="input_2_2"/>
+                            <label for="input_2_2"></label> 
+                            <label class="txt">Concordo com os </label>
+                            <a href="#" class="tercon">Termos</a>
+                            <label class="txt"> & </label>
+                            <a href="#" class="tercon">Condições</a>
+                        </span>  
+                        </label>
+                    </div>
+                    <button type="submit" class="btn">Cadastrar</button>
+                    <div class="register-login">
+                        <div class="txt-reg">
+                            <p class="txt-register">já tem uma conta?   </p>
+                            <a href="#" class="login-link">Login</a> 
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="Copy">
+            <span class="Copy-close"><ion-icon name="close"></ion-icon></span>
+            <a>Helio Lourenco Esperidiao Ferreira </a>
+            <table>
+                <tr>
+                  <td><a>Amanda Evangelista Lima</a></td>
+                  <td><a>Arthur Oliveira San Sebastian</a></td>
+                  <td><a>Eliaquim dos Santos Lima</a></td>
+                  <td><a>Ellen Tuane Silva Pinto</a></td>
+                </tr>
+                <tr>
+                  <td><a>Francisco Igor Nunes Soares</a></td>
+                  <td><a>Gabriel Ribas Pierre</a></td>
+                  <td><a>Giovanni Jamberso Gonçalves</a></td>
+                  <td><a>Guilherme Ribeiro Costa</a></td>
+                </tr>
+                <tr>
+                  <td><a>Heloan José Jacinto Marinho</a></td>
+                  <td><a>Henry Lírio Rufino</a></td>
+                  <td><a>Ícaro Augusto Rodrigues de Freitas</a></td>
+                  <td><a>Júnior Rafael Rosa Fagundes</a></td>
+                </tr>
+                <tr>
+                  <td><a>Leonardo Carrer Lemos</a></td>
+                  <td><a>Leticia Costa Leite</a></td>
+                  <td><a>Nicholas Eras Fonseca</a></td>
+                  <td><a>Paulo Henrique Dias Vieira</a></td>
+                </tr>
+                <tr>
+                  <td><a>Pedro Henrique Domiciano Alves</a></td>
+                  <td><a>Pedro Henrique Serpa Bechelli</a></td>
+                  <td><a>Pedro Rodrigues Santos Valle</a></td>
+                  <td><a>Victor Assumpção Pedroso</a></td>
+                </tr>
+              </table>                  
+        </div>
+        <footer>
+            <a>Copyright © 2023</a><br>
+            <button class="btnCopy-popup"><p>FEAU-9UNA 2023 </p></button>
+            
+        </footer>
+        <script src="../JAVASCRIPT/home.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </body>
+</html>

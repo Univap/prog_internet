@@ -1,0 +1,786 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    display: flex;
+    background: #000;
+}
+.fotofundo{
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    justify-content: center;
+    /* background: url('../Imagens/Univap.png')no-repeat; */
+    background-size: cover;
+    background-position: center;
+}
+.fotofundo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5; /* adjust this value to make the image darker or lighter */
+}
+li{
+    list-style: none;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 1rem;
+    background: #000;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    z-index: 130;
+}
+.navbar{
+    width: 100%;
+    height: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.logo{
+    text-decoration: none;
+    font-size: 2rem;
+    color: #fff;
+    user-select: none;
+}
+.navbar .links{
+    display:flex;
+    position: relative;
+    padding-left: 32vw;
+    gap: 2rem;
+}
+.navbar .toggle_btn{
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display:block;
+}
+.links a{
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 1.2vh;
+}
+.links a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s; 
+}
+.links a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+header .btnLogin-popup{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    transition: .5s;
+}
+header .btnLogin-popup:hover{
+    background: #fff;
+    color: #162938;
+}
+.dropdown_menu{
+    display: block;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: #4B0082;
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 100;
+}
+.dropdown_menu.open{
+    height: 90px;
+    border: 2px solid #000;
+}
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown_menu a{
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 1.2vh;
+}
+.dropdown_menu a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s; 
+}
+.dropdown_menu a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+.dropdown_menu .btnLogin-popup{
+    width: 100%;
+    justify-content: center;
+}
+
+@media (max-width: 576px){
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+
+}
+.imgCapa{
+    position: relative;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: #282730;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 25rem;
+    overflow: hidden;
+}
+
+.imgCap .file-input {
+    position: relative;
+}
+
+#input-imagem {
+    position: absolute;
+    left: -9999px;
+}
+.navbarperfil .file-input .file{
+    display: none;
+}
+.navbarperfil .file-input .label {
+    display: flex;
+    justify-content: center;
+    padding: 9px 9px;
+    height: 2rem;
+    width: 2rem;
+    color: #fff;
+    background-color: #1d0c3c;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 95%;
+    margin-top: 3rem;
+    z-index: 90;
+}
+.imgperfil .file-input .file{
+    display: none;
+}
+.imgperfil .file-input .label {
+    display: flex;
+    justify-content: center;
+    padding: 9px 9px;
+    height: 2rem;
+    width: 2rem;
+    color: #fff;
+    background-color: #1d0c3c;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 17rem;
+    margin-top: -3rem;
+    z-index: 100;
+}
+#file-name {
+    margin-top: 8px;
+}
+.fotoperfil a{
+    margin-top: 4rem;
+    font-size: 1.1em;
+    color: #1d0c3c;
+    margin-left: auto;
+    margin-right: auto; 
+}
+.imgCapa .visualizacao-imagem{
+    z-index: 80;
+}
+.painelperfil{
+    height: 4rem;
+    width: 100%;
+}
+.imgCapa .navbarperfil{
+    margin-top: 3rem;
+}
+.imgCapa .visualizacao-imagem img{
+    display: flex;
+    width:100%;
+    height: auto;
+    background-repeat:no-repeat;
+    background-size: 30%;
+    background-position: center;
+    position: absolute;
+    margin-top: -1rem;
+}
+.Fundocapa{
+    position: relative;
+    background: #1d1d1d;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 38rem;
+    z-index: 120;
+}
+.capa{
+    width: 100%;
+    height: 18rem;
+}
+.imgCapa .md.hydrated{
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.imgperfil .md.hydrated{
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.fotoperfil{
+    position: relative;
+    border-radius: 50%;
+    background: #41404b;
+    margin-left: 7rem;
+    margin-top: -4rem;
+    width: 13rem;
+    height: 13rem;
+    overflow: hidden;
+}
+.imgperfil .visualizacao-imagem img{
+    display: flex;
+    width:100%;
+    height: auto;
+    background-repeat:no-repeat;
+    background-size: 30%;
+    background-position: center;
+    position: absolute;
+    margin-top: -1rem;
+}
+.Fundocapa .nome{
+    font-size: 2rem; /* tamanho da letra */
+    font-weight: bold;
+    color: #fff;
+    margin-top: -8rem;
+    margin-left: 21rem;
+}
+.Fundocapa .email{
+    font-size: 1rem; /* tamanho da letra */
+    color: #fff;
+    margin-top: 0rem;
+    margin-left: 21rem;
+}
+.Fundocapa .navcapa{
+    width: 100%;
+    height: 3.5rem;
+    max-width: 1800px;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.navcapa .txt1{
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    background: transparent;
+    border: transparent;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+    margin-left: 1.2vh;
+}
+.navcapa .txt1::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s; 
+}
+.navcapa .txt1:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+.navcapa .txt2{
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    background: transparent;
+    border: transparent;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+    margin-left: 1.2vh;
+}
+.navcapa .txt2::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s; 
+}
+.navcapa .txt2:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+.barracapa{
+    margin-top: 5rem;
+    border-top: 2px solid #fff;
+}
+.areasobre{
+    display: none;
+    position: absolute;
+    background: #212029;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 37rem;
+    width: 80%;
+    height: 100%;
+    margin: 0, 0, 0, 0;
+    padding-top: 2rem;
+    overflow: hidden;
+}
+.areasobre1{
+    display: none;
+    position: absolute;
+    background: #212029;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 37rem;
+    width: 80%;
+    height: 100%;
+    
+    padding-top: 2rem;
+    overflow: hidden;
+}
+.Sobre{
+    /* background: #fff; */
+    width: 100%;
+    height: 3px;
+}
+.Sobre .input-box .txt{
+    position: absolute;
+    top: 20%;
+    left: 5px;
+    font-size: 1em;
+    color: #1d0c3c;
+    font-weight: 500;
+    pointer-events: none;
+    display: flex;
+}
+.Sobre .input-box1 .txt{
+    position: absolute;
+    top: 20%;
+    left: 5px;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 500;
+    pointer-events: none;
+    display: flex;
+}
+.Sobre .input-box2 .txt{
+    position: absolute;
+    top: 20%;
+    left: 5px;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 500;
+    pointer-events: none;
+    display: flex;
+}
+.Sobre .input-box-select .txt{
+    position: absolute;
+    top: 20%;
+    left: 5px;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 500;
+    pointer-events: none;
+    display: flex;
+}
+.Sobre .input-box3 .txt{
+    position: absolute;
+    top: -8%;
+    left: 5px;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 500;
+    pointer-events: none;
+    display: flex;
+}
+
+.Sobre .input_txt1{
+    height: 60%;
+    width: 84%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 600;
+    margin: 24px 0 0 0;
+    padding: 0px 5px 3px 5px;
+}
+.Sobre .input_txt2{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0px 8px 0 5px;
+    resize: none;
+}
+.Sobre .input_txtlong{
+    width: 92%;
+    height: 60%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 600;
+    margin: 24px 0px 0px 0;
+    padding: 0px 8px 3px 5px;
+    resize: none;
+}
+.Sobre .input-box1{
+    position: relative;
+    width: 88%;
+    height: 50px;
+    border-bottom: 2px solid #ffffff;
+    margin-top: 10px;
+    margin-left: 33px
+}
+.Sobre .input-box2{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-left: 2rem;
+    border-bottom: 2px solid #ffffff;
+    margin-top: 10px;
+}
+.Sobre .input-box-select{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-left: 2rem;
+    border-bottom: 2px solid #ffffff;
+    margin-top: 10px;
+}
+.Sobre .input-box3{
+    position: relative;
+    width: 88%;
+    height: 20rem;
+    border-bottom: 2px solid #ffffff;
+    margin-top: 38px;
+    margin-left: 33px
+}
+.input_txt2::-webkit-scrollbar {
+    width: 5px;               /* width of the entire scrollbar */
+  }
+  
+.input_txt2::-webkit-scrollbar-track {
+    background: transparent;        /* color of the tracking area */
+  }
+  
+.input_txt2::-webkit-scrollbar-thumb {
+    background-color: #ffffff;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: transparent;  /* creates padding around scroll thumb */
+}
+.nomera{
+    padding-left: 3rem;
+}
+input[type=checkbox] {
+    display:none;
+}
+input[type=checkbox] + label {
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    height: 25px;
+    width: 25px;
+    display:inline-block;
+}
+input#input_2_0 + label {
+    background-image: url('../Imagens/hide.png');
+}
+input#input_2_0:checked + label {
+      background-image: url('../Imagens/view.png');
+}
+
+/* Estilo bÃƒÂ¡sico da barra de rolagem */
+::-webkit-scrollbar {
+    width: 10px; /* Largura da barra de rolagem */
+}
+
+/* Estilo do botÃƒÂ£o de rolagem */
+::-webkit-scrollbar-thumb {
+    background-color: #888; /* Cor do botÃƒÂ£o de rolagem */
+    border-radius: 5px; /* Raio do botÃƒÂ£o de rolagem */
+}
+
+/* Estilo da ÃƒÂ¡rea da barra de rolagem (background) */
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Cor da ÃƒÂ¡rea da barra de rolagem */
+}
+
+/* Estilo do botÃƒÂ£o de rolagem ao passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Cor do botÃƒÂ£o de rolagem ao passar o mouse */
+}
+.Salvarsobre{
+    color: #fff;
+    background: #7223a5;
+    border: 2px solid #000;
+    font-size: 1.3em;
+    margin-top:1rem;
+    margin-left: 85%;
+    padding: .3rem;
+    cursor: pointer;
+}
+.Sobre1 .input-box .txt{
+    position: absolute;
+    top: 20%;
+    left: 5px;
+    font-size: 1em;
+    color: #1d0c3c;
+    font-weight: 500;
+    pointer-events: none;
+    display: flex;
+}
+.Sobre1 .input-box1 .txt{
+    position: absolute;
+    top: 20%;
+    left: 5px;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 500;
+    pointer-events: none;
+    display: flex;
+}
+.Sobre1 .input-box2 .txt{
+    position: absolute;
+    top: 20%;
+    left: 5px;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 500;
+    pointer-events: none;
+    display: flex;
+}
+.Sobre1 .input-box3 .txt{
+    position: absolute;
+    top: -8%;
+    left: 5px;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 500;
+    pointer-events: none;
+    display: flex;
+}
+
+.Sobre1 .input_txt1{
+    height: 60%;
+    width: 84%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 600;
+    margin: 24px 0 0 0;
+    padding: 0px 5px 3px 5px;
+}
+.Sobre1 .input_txt2{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0px 8px 0 5px;
+    resize: none;
+}
+.Sobre1 .input_txtlong{
+    width: 100%;
+    height: 60%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 600;
+    margin: 24px 0px 0px 0;
+    padding: 0px 8px 3px 5px;
+    resize: none;
+}
+.Sobre1 .input-box1{
+    position: relative;
+    width: 90%;
+    height: 50px;
+    border-bottom: 2px solid #ffffff;
+    margin-top: 10px;
+    margin-left: 33px
+}
+.Sobre1 .input-box2{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-left: 2rem;
+    border-bottom: 2px solid #ffffff;
+    margin-top: 10px;
+}
+.Sobre1 .input-box3{
+    position: relative;
+    width: 90%;
+    height: 20rem;
+    border-bottom: 2px solid #ffffff;
+    margin-top: 38px;
+    margin-left: 33px
+}
+.Editarsobre{
+    color: #fff;
+    background: transparent;
+    border: transparent;
+    font-size: 1.3em;
+    display: none;
+    padding: .3rem;
+    cursor: pointer;
+    justify-content: space-around;
+}
+.Sobre1{
+    /* background: #fff; */
+    width: 100%;
+    height: 3px;
+}
+.Deletarconta{
+    color: #fff;
+    background: transparent;
+    border: transparent;
+    font-size: 1.3em;
+    display: none;
+    padding: .3rem;
+    cursor: pointer;
+    justify-content: space-around;
+}
+.sobrebtn{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+.input_txt-select{
+    height: 60%;
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 24px 0 0 0;
+    padding: 0px 5px 3px 5px;
+}
+select option {
+    font-size: 1em;
+    color: #fff;
+    font-weight: 600;
+    background-color: #000;
+}
+.configurar{
+    display: none;
+    position: absolute;
+    background: #212029;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 37rem;
+    width: 80%;
+    height: 50%;
+    margin: 0, 0, 0, 0;
+    padding-top: 1rem;
+    overflow: hidden;
+}
+.telaconf{
+    width: 100%;
+}
+.baraconf{
+    width: 20%;
+    display: flex;
+    height: 100%;
+    border: #fff 2px solid;
+    flex-direction: column;
+}
+.contaedit{
+    color: #fff;
+    background: transparent;
+    border: transparent;
+    font-size: 1.3em;
+    display: flex;
+    margin-top: 2rem;
+    padding: .3rem;
+    cursor: pointer;
+}
