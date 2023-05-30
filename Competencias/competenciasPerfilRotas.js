@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const connection = require('./database');
+const connection = require('../database.js');
 
 router.get('/self-competencias/:id', async (req, res) => {
   const id = parseInt(req.params.id);

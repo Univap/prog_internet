@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const connection = require('./database');
+const connection = require('../database.js');
 
 router.get('/', (req, res) => {
   res.send('Bem-vindo à minha API!');
