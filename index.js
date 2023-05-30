@@ -26,6 +26,11 @@ app.use(express.json())
 app.use(cors());
 app.use(morgan('tiny'));
 
+
+app.get("/", (req, res) => {
+  res.redirect("Perfil/HTML/index.html");
+});
+
 // Importar as rotas
 const competenciaRotas = require('./competenciaRotas');
 const competenciasPerfilRotas = require('./competenciasPerfilRotas');
