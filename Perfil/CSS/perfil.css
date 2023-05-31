@@ -173,6 +173,11 @@ header .btnLogin-popup:hover{
     }
 
 }
+.conteudo-principal{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 .imgCapa{
     position: relative;
     border-bottom-left-radius: 20px;
@@ -270,7 +275,7 @@ header .btnLogin-popup:hover{
 }
 .capa{
     width: 100%;
-    height: 18rem;
+    height: auto;
 }
 .imgCapa .md.hydrated{
     margin-top:auto;
