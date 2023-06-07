@@ -1,37 +1,88 @@
+const saveExperiencia = function () {
+
+  const empresa = document.getElementById("empresa").value;
+  const cargo = document.getElementById("cargo").value;
+  const inicio = document.getElementById("inicio").value;
+  const termino = document.getElementById("termino").value;
+  const atual = document.getElementById("atual").checked ? 1 : 0;
+  const comentario = document.getElementById("comentario").value;
+  const perfilMatricula = 1738382;
+
+
+  if (empresa != "" && cargo != "" && inicio != "" && termino != "" && comentario != "" && perfilMatricula != "") {
+    const experiencia = {
+      empresa: empresa,
+      cargo: cargo,
+      inicio: inicio,
+      termino: termino,
+      atual: atual,
+      comentario: comentario,
+      perfilMatricula: perfilMatricula
+    };
+    const url = "/experiencias"
+
+    const response = fetch(url, {
+      body: JSON.stringify(experiencia),
+      method: "POST",
+      headers: { "Content-Type": "application/json" }
+    }).then((response) => {
+      return response.json()
+    }).then((data) => {
+      alert(data.result)
+      //loadUsersFromDatabase()
+    }).catch((error) => console.log(error))
+  } else {
+    alert(`Dados em branco!`)
+  }
+
+}
+
 const buttonSalvar = document.getElementById("btn-salvar");
-buttonSalvar.onclick = enviarDados
+buttonSalvar.onclick = saveExperiencia
 
-    function enviarDados() {
-      // Recupera os valores dos campos do formulário
-      var empresa = document.getElementById("empresa").value;
-      var cargo = document.getElementById("cargo").value;
-      var inicio = document.getElementById("inicio").value;
-      var termino = document.getElementById("termino").value;
-      var atual = document.getElementById("atual").checked ? 1 : 0;
-      var comentario = document.getElementById("comentario").value;
+const loadExperiencia = function (event) {
+  //data-idExperiencia
+  const matricula = 1738382;
 
-      // Cria um objeto com os dados
-      var dados = {
-        empresa: empresa,
-        cargo: cargo,
-        inicio: inicio,
-        termino: termino,
-        atual: atual,
-        comentario: comentario
-      };
+  const url = `/perfil/${matricula}/experiencias`
+  const response = fetch(url, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" }
+  }).then((response) => {
+      return response.json()
+  }).then((dados) => {
+      const tabela = document.getElementById("tabela")
+      tabela.innerHTML = ""
 
-      // Envia os dados para o servidor via AJAX
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "salvar-experiencia.php", true);
-      xhr.setRequestHeader("Content-Type", "application/json");
-      xhr.onreadystatechange = function () {
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-          alert("Experiência salva com sucesso!");
-          // Limpa o formulário
-          document.getElementById("formulario").reset();
-        }
-      };
-      xhr.send(JSON.stringify(dados));
+      for (let dado of dados) {
+          const buttonUpdate = document.createElement("button")
+          buttonUpdate.innerHTML = "Atualizar"
+          buttonUpdate.className = "button-update"
+          buttonUpdate.idUsuario = dado.idUsuario
+          buttonUpdate.email = dado.email
+          buttonUpdate.senha = dado.senha
+          buttonUpdate.nome = dado.nome
+          buttonUpdate.addEventListener("click", enableUpdateUser)
 
-      return false;
-    }
+          const buttonDelete = document.createElement("button")
+          buttonDelete.innerHTML = "Deletar"
+          buttonDelete.className = "button-delete"
+          buttonDelete.idUsuario = dado.idUsuario
+          buttonDelete.addEventListener("click", deleteUser)
+
+          const newRow = tabela.insertRow()
+          const cell1 = newRow.insertCell()
+          const cell2 = newRow.insertCell()
+          const cell3 = newRow.insertCell()
+          const cell4 = newRow.insertCell()
+          const cell5 = newRow.insertCell()
+          cell1.innerHTML = dado.idUsuario
+          cell2.innerHTML = dado.email
+          cell3.innerHTML = dado.senha
+          cell4.innerHTML = dado.nome
+          cell5.append(buttonUpdate)
+          cell5.append(buttonDelete)
+      }
+  }).catch((error) => console.log(error))
+
+}

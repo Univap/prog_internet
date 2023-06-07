@@ -21,7 +21,14 @@ h1 {
     width: 80vw;        
   }
 
-  button {
+  .button {
+    background-color: #415ec0;
+    color: aliceblue;
+    font-size: 1.5em;
+    border-radius: 10px;
+  }
+
+  .button:hover{
     background-color: #417ec0;
     color: aliceblue;
     font-size: 1.5em;
@@ -50,4 +57,8 @@ h1 {
     flex-direction: row;
     justify-content: flex-start;
     gap: 1em;
+  }
+
+  .hide{
+    display: none;
   }

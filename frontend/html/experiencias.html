@@ -4,17 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Formulario de Experiencia</title>
+  <link rel="icon" type="image/x-icon" href="../img/Linkivap.ico">
   <link rel="stylesheet" href="../css/experiencias.css">
   <script src="../js/experiencias.js" defer></script>  
 </head>
 
 <body>
   <div class="header">
-    <img class="logo" src="../img/logo_univap.jpg" alt="logo univap">
+    <img class="logo" src="../img/Linkivap.png" alt="logo univap">    
     <h1>Experiência</h1>
     <h2 class="subtitle">Experiências anteriores</h2>
   </div>
-  
+  <div class="container-experiencias" id="container-experiencias">
+  </div>  
   <div class="container-cadastro">
     <label for=" empresa">Empresa:</label>
     <input type="text" id="empresa" name="empresa">
@@ -37,7 +39,7 @@
       <input type="checkbox" id="atual" name="atual"> 
     </div>    
 
-    <button id="btn-salvar" onclick="return enviarDados()">Salvar</button>
+    <button id="btn-salvar" class="button">Salvar</button>
   </div>
 
 </body>
