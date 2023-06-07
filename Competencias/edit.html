@@ -74,8 +74,7 @@
         ></button-component>
       </div>
     </div>
-    <voltar-component></voltar-component>
-    <script src="components/voltar.js" type="text/javascript" defer></script>
+    
 
     <script>
       const currentPath = window.location.pathname;
@@ -92,7 +91,7 @@
       const competences = [];
       const select = document.querySelector("#select");
       const get_competencias = async () => {
-        await fetch("http://127.0.0.1:3001/competencias")
+        await fetch("http://127.0.0.1:3000/competencias")
           .then((res) => res.json())
           .then((data) => {
             data.forEach((obj) => {
@@ -122,7 +121,7 @@
           nome_competencia: name_competence.value,
           descricao_competencia: description_competence.value,
         };
-        await fetch("http://127.0.0.1:3001/competencias", {
+        await fetch("http://127.0.0.1:3000/competencias", {
           method: "PUT",
           headers: { "Content-Type": "Application/json" },
           body: JSON.stringify(obj_put),
@@ -157,7 +156,7 @@
       };
 
       const deleteCompetence = async () => {
-        await fetch(`http://127.0.0.1:3001/competencias/${select.value}`, {
+        await fetch(`http://127.0.0.1:3000/competencias/${select.value}`, {
           method: "DELETE",
         }).then((res) => {
           res.json().then((data) => {

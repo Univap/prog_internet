@@ -4,4 +4,4 @@
 # FRONTEND
 #  $ python -m http.server 8080
 # LOCALTUNNEL
-#  $ lt --port 3001
+#  $ lt --port 3000

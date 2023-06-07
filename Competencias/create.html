@@ -58,8 +58,7 @@
         ></button-component>
       </div>
     </div>
-    <voltar-component></voltar-component>
-    <script src="components/voltar.js" type="text/javascript" defer></script>
+    
 
     <script>
       const currentPath = window.location.pathname;
@@ -79,7 +78,7 @@
           nome_competencia: name_competence,
           descricao_competencia: description_competence,
         };
-        await fetch("http://127.0.0.1:3001/competencias", {
+        await fetch("http://127.0.0.1:3000/competencias", {
           method: "POST",
           headers: { "Content-Type": "Application/json" },
           body: JSON.stringify(obj_post),

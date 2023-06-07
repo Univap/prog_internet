@@ -43,12 +43,11 @@
     <navbar-component></navbar-component>
 
     <div class="competencias"></div>
-
-    <voltar-component></voltar-component>
+    
     <script>
       const compt_bloco = document.querySelector(".competencias");
       const get_competencias = async () => {
-        await fetch("http://127.0.0.1:3001/competencias")
+        await fetch("http://127.0.0.1:3000/competencias")
           .then((res) => res.json())
           .then((data) =>
             data.forEach((obj) => {
@@ -86,6 +85,5 @@
       });
     </script>
     <script src="components/navbar.js" type="text/javascript" defer></script>
-    <script src="components/voltar.js" type="text/javascript" defer></script>
   </body>
 </html>

@@ -75,8 +75,7 @@
       ></button-component>
     </div>
     <div class="competencias"></div>
-    <voltar-component></voltar-component>
-    <script src="components/voltar.js" type="text/javascript" defer></script>
+    
 
     <script>
       const currentPath = window.location.pathname;
@@ -90,7 +89,7 @@
       const competences = [];
 
       const get_competencias_select = async () => {
-        await fetch("http://127.0.0.1:3001/competencias")
+        await fetch("http://127.0.0.1:3000/competencias")
           .then((res) => res.json())
           .then((data) => {
             data.forEach((obj) => {
@@ -106,7 +105,7 @@
 
       const compt_bloco = document.querySelector(".competencias");
       const get_competencias = async () => {
-        await fetch("http://127.0.0.1:3001/self-competencias/123456")
+        await fetch("http://127.0.0.1:3000/self-competencias/123456")
           .then((res) => res.json())
           .then((data) =>
             data.forEach((obj) => {
@@ -123,7 +122,7 @@
               button_remove.setAttribute("class", "buttonRemove");
               button_remove.addEventListener("click", async () => {
                 await fetch(
-                  `http://127.0.0.1:3001/self-competencias/123456/${obj.idCompetencias}`,
+                  `http://127.0.0.1:3000/self-competencias/123456/${obj.idCompetencias}`,
                   {
                     method: "DELETE",
                   }
@@ -148,7 +147,7 @@
       const addCompetence = async () => {
         const id_competence = select.value;
         obj_to_post = competences.find(obj => obj.codigo_competencia == id_competence);
-        await fetch("http://127.0.0.1:3001/self-competencias", {
+        await fetch("http://127.0.0.1:3000/self-competencias", {
           method: "POST",
           body: JSON.stringify({...obj_to_post, Perfil_matricula:123456}),
           headers: { "Content-Type": "Application/json" },

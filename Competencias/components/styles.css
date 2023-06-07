@@ -30,29 +30,8 @@ nav a.active{
   text-decoration: underline;
 }
 
-.voltar-component{
-  position: relative;
-  width: 100px;
-  height: 100px;
-  background-color: aqua;
-}
-
-voltar-component{
-  position: relative;
-  width: 100px;
-  height: 100px;
-  background-color: aqua;
-}
-
-.voltar-component-tag{
-  position: relative;
-  width: 100px;
-  height: 100px;
-  background-color: aqua;
-}
-
 @media (max-width:560px){
-  /* .header{
+  .header{
     margin-left: calc(12.5% - 0.5rem);
     margin-bottom: 1rem;
     width: 80px;
@@ -100,7 +79,7 @@ voltar-component{
     height: 64px;
     background-color: black;
     transform: rotate(135deg);
-  } */
+  }
   nav{
     margin: 0;
     width: clamp(4.75rem,20vw, 7rem);
