@@ -21,7 +21,7 @@ app.post('/experiencias', function (req, res) {
     const termino = req.body.termino;
     const atual = req.body.atual;
     const comentario = req.body.comentario;
-    const perfilMatricula = req.body.perfilMatricula;    
+    const perfilMatricula = req.body.perfilMatricula;
     const connection = mysql.createConnection(databaseParameters);
 
     let sql;
@@ -31,7 +31,7 @@ app.post('/experiencias', function (req, res) {
         sql = "UPDATE experiencia SET atual = 0 WHERE experiencia.Perfil_matricula=?";
         values = perfilMatricula;
         connection.query(sql, values)
-    }   
+    }
 
     sql = "INSERT INTO experiencia VALUES (null,?)"
     values = [perfilMatricula, empresa, cargo, inicio, termino, atual, comentario]
@@ -53,25 +53,25 @@ app.get("/perfil/:matricula/experiencias", function (req, res) {
     const sql = "SELECT * FROM experiencia WHERE experiencia.Perfil_matricula=?"
     const value = matricula
 
-    connection.query(sql,value, function (err, result, fields) {
+    connection.query(sql, value, function (err, result, fields) {
         res.send(result)
     })
 });
 
 app.delete("/experiencias/:idExperiencia", function (req, res) {
 
-    const idUsuario = req.body.idUsuario
+    const idExperiencia = req.params.idExperiencia
 
     const connection = mysql.createConnection(databaseParameters)
 
-    const sql = "DELETE FROM usuario WHERE usuario.idUsuario = (?)"
-    const values = idUsuario
+    const sql = "DELETE FROM experiencia WHERE experiencia.idExperiencia = (?)"
+    const values = idExperiencia
 
     connection.query(sql, values, function (err, result, fields) {
         if (err) {
-            res.send({ result: "Ocorreu um erro ao deletar o usuario" })
+            res.send({ result: "Ocorreu um erro ao deletar a experiência" })
         } else {
-            res.send({ result: "Usuario deletado com sucesso" })
+            res.send({ result: "Experiência deletada com sucesso" })
         }
     })
 
@@ -79,20 +79,35 @@ app.delete("/experiencias/:idExperiencia", function (req, res) {
 
 app.put("/experiencias/:idExperiencia", function (req, res) {
 
-    const idUsuario = req.body.idUsuario
-    const email = req.body.email
-    const senha = req.body.senha
-    const nome = req.body.nome
+    const idExperiencia = req.params.idExperiencia
+
+    const empresa = req.body.empresa;
+    const cargo = req.body.cargo;
+    const inicio = req.body.inicio;
+    const termino = req.body.termino;
+    const atual = req.body.atual;
+    const comentario = req.body.comentario;
+    const perfilMatricula = req.body.perfilMatricula;
     const connection = mysql.createConnection(databaseParameters)
 
-    const sql = "UPDATE usuario SET email = ?, senha = ?, nome = ? WHERE usuario.idUsuario=?"
-    const values = [email, senha, nome, idUsuario]
+    let sql;
+    let values;
+
+    if (atual == 1) {
+        sql = "UPDATE experiencia SET atual = 0 WHERE experiencia.Perfil_matricula=?";
+        values = perfilMatricula;
+        connection.query(sql, values)
+    }
+
+    sql = "UPDATE experiencia SET empresa=?, cargo=?, inicio=?,termino=?,atual=?,comentario=? WHERE experiencia.idExperiencia=?"
+    values = [empresa, cargo, inicio, termino, atual, comentario, idExperiencia]
 
     connection.query(sql, values, function (err, result, fields) {
         if (err) {
-            res.send({ result: "Ocorreu um erro ao atualizar o usuario" })
+            res.send({ result: "Ocorreu um erro ao atualizar a experiência" })
+            console.log(err)
         } else {
-            res.send({ result: "Usuario atualizado com sucesso" })
+            res.send({ result: "Experiência atualizada com sucesso" })
         }
     })
 
