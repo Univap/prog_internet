@@ -1,64 +1,127 @@
 label {
-    font-weight: bold;
-  }
+  font-weight: bold;
+}
 
 textarea {
-    height: 30vh;
-    width: 30vw;
-    border-radius: 10px;      
-  }
+  height: 30vh;
+  width: 30vw;
+  border-radius: 10px;
+}
 
 h1 {
-    font-family: sans-serif;
-  }
+  font-family: sans-serif;
+}
 
 .container-cadastro {
-    display: flex ;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;    
-    height: 80vh;
-    width: 80vw;        
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 80vh;
+  width: 80vw;
+}
 
-  .button {
-    background-color: #415ec0;
-    color: aliceblue;
-    font-size: 1.5em;
-    border-radius: 10px;
-  }
+.container-cadastro-buttons{
+  display: flex;
+  direction: row;
+  gap: 2em;
+}
 
-  .button:hover{
-    background-color: #417ec0;
-    color: aliceblue;
-    font-size: 1.5em;
-    border-radius: 10px;
-  }
+.container-experiencias {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin-bottom: 2em;
+}
 
-.header {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; 
-    align-items: flex-start; 
-  }    
+.container-experiencia {
+  display: flex;
+  flex-direction: row;
+  border-bottom: darkgrey solid 1px;
+}
 
-.logo{
-    height: auto;
-    width: 8em;
-  }
+.container-experiencia-textos {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  width: 50vw;
+}
 
-.subtitle{
-    color: darkgrey;
-    margin-top: 0px;
-  }
+.container-experiencia-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 1em;
+}
 
-.dates-forms{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 1em;
-  }
+.button {
+  background-color: #415ec0;
+  color: aliceblue;
+  font-size: 1em;
+  border-radius: 10px;
+}
 
-  .hide{
-    display: none;
-  }
+.button:hover {
+  background-color: #417ec0;
+  color: aliceblue;
+  font-size: 1em;
+  border-radius: 10px;
+}
+
+.button-update {
+  background-color: #415ec0;
+  color: aliceblue;
+  font-size: 1em;
+  border-radius: 10px;
+}
+
+.button-update:hover {
+  background-color: #417ec0;
+  color: aliceblue;
+  font-size: 1em;
+  border-radius: 10px;
+}
+
+.button-delete {
+  background-color: firebrick;
+  color: aliceblue;
+  font-size: 1em;
+  border-radius: 10px;
+}
+
+.button-delete:hover {
+  background-color: red;
+  color: aliceblue;
+  font-size: 1em;
+  border-radius: 10px;
+}
+
+.container-button-add{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header { 
+ margin-bottom: 0px;
+}
+
+.logo {
+  height: auto;
+  width: 8em;
+}
+
+.subtitle {
+  color: darkgrey;
+  margin-top: 0px;
+}
+
+.dates-forms {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1em;
+}
+
+.hide {
+  display: none;
+}

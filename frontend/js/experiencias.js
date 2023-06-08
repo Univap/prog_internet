@@ -19,26 +19,38 @@ const saveExperiencia = function () {
       comentario: comentario,
       perfilMatricula: perfilMatricula
     };
-    const url = "/experiencias"
+    const url = "/experiencias";
 
     const response = fetch(url, {
       body: JSON.stringify(experiencia),
       method: "POST",
       headers: { "Content-Type": "application/json" }
     }).then((response) => {
-      return response.json()
+      return response.json();
     }).then((data) => {
-      alert(data.result)
+      alert(data.result);
       //loadUsersFromDatabase()
     }).catch((error) => console.log(error))
   } else {
-    alert(`Dados em branco!`)
+    alert(`Dados em branco!`);
   }
 
 }
 
 const buttonSalvar = document.getElementById("btn-salvar");
-buttonSalvar.onclick = saveExperiencia
+buttonSalvar.onclick = saveExperiencia;
+
+const enableUpdateExperiencia = function (event) {
+  console.log(event.target.getAttribute("data-idExperiencia"));
+  console.log(event.target.getAttribute("data-Perfil_matricula"));
+  document.getElementById("btn-atualizar").classList.remove("hide")
+  document.getElementById("container-cadastro").classList.remove("hide")
+}
+
+const deleteExperiencia = function (event) {
+  console.log(event.target.getAttribute("data-idExperiencia"));
+  console.log(event.target.getAttribute("data-Perfil_matricula"));
+}
 
 const loadExperiencia = function (event) {
   //data-idExperiencia
@@ -46,43 +58,101 @@ const loadExperiencia = function (event) {
 
   const url = `/perfil/${matricula}/experiencias`
   const response = fetch(url, {
-      method: "GET",
-      headers: { "Content-Type": "application/json" }
+    method: "GET",
+    headers: { "Content-Type": "application/json" }
   }).then((response) => {
-      return response.json()
-  }).then((dados) => {
-      const tabela = document.getElementById("tabela")
-      tabela.innerHTML = ""
+    return response.json();
+  }).then((experiencias) => {
+    const divExperiencias = document.getElementById("container-experiencias");
+    divExperiencias.innerHTML = "";    
 
-      for (let dado of dados) {
-          const buttonUpdate = document.createElement("button")
-          buttonUpdate.innerHTML = "Atualizar"
-          buttonUpdate.className = "button-update"
-          buttonUpdate.idUsuario = dado.idUsuario
-          buttonUpdate.email = dado.email
-          buttonUpdate.senha = dado.senha
-          buttonUpdate.nome = dado.nome
-          buttonUpdate.addEventListener("click", enableUpdateUser)
+    for (let experiencia of experiencias) {      
 
-          const buttonDelete = document.createElement("button")
-          buttonDelete.innerHTML = "Deletar"
-          buttonDelete.className = "button-delete"
-          buttonDelete.idUsuario = dado.idUsuario
-          buttonDelete.addEventListener("click", deleteUser)
+      const divExperiencia = document.createElement("div");
+      divExperiencia.className = "container-experiencia";
 
-          const newRow = tabela.insertRow()
-          const cell1 = newRow.insertCell()
-          const cell2 = newRow.insertCell()
-          const cell3 = newRow.insertCell()
-          const cell4 = newRow.insertCell()
-          const cell5 = newRow.insertCell()
-          cell1.innerHTML = dado.idUsuario
-          cell2.innerHTML = dado.email
-          cell3.innerHTML = dado.senha
-          cell4.innerHTML = dado.nome
-          cell5.append(buttonUpdate)
-          cell5.append(buttonDelete)
-      }
-  }).catch((error) => console.log(error))
+      const divExperienciaTexts = document.createElement("div");
+      divExperienciaTexts.className = "container-experiencia-textos";
+
+      const divEmpresa = document.createElement("div");
+      divEmpresa.innerHTML = experiencia.empresa;
+
+      const divCargo = document.createElement("div");
+      divCargo.innerHTML = experiencia.cargo;
+
+      const divDescricao = document.createElement("div");
+      divDescricao.innerHTML = experiencia.comentario;
+
+      const divDates = document.createElement("div");
+      divDates.className = "dates-forms"
+
+      const divInicio = document.createElement("div");
+      divInicio.innerHTML = experiencia.inicio; 
+      divInicio.innerHTML = new Date(divInicio.innerHTML).toLocaleDateString('pt-BR');
+            
+      const divTermino = document.createElement("div");
+      divTermino.innerHTML = experiencia.termino
+      divTermino.innerHTML  = new Date(divTermino.innerHTML).toLocaleDateString('pt-BR');      
+      divTermino.innerHTML = experiencia.atual == 1? "Atual" : divTermino.innerHTML;
+
+      divDates.append(divInicio)
+      divDates.append(divTermino)     
+      
+      divExperienciaTexts.append(divEmpresa)
+      divExperienciaTexts.append(divCargo)
+      divExperienciaTexts.append(divDescricao)
+      divExperienciaTexts.append(divDates)
+
+      const divExperienciaButtons = document.createElement("div");
+      divExperienciaButtons.className = "container-experiencia-buttons";
+
+      const buttonEnableUpdate = document.createElement("button");
+      buttonEnableUpdate.innerHTML = "Atualizar";
+      buttonEnableUpdate.className = "button-update";
+      buttonEnableUpdate.setAttribute("data-idExperiencia", experiencia.idExperiencia);
+      buttonEnableUpdate.setAttribute("data-Perfil_matricula", experiencia.Perfil_matricula);
+      buttonEnableUpdate.addEventListener("click", enableUpdateExperiencia);
+
+      const buttonDelete = document.createElement("button");
+      buttonDelete.innerHTML = "Deletar";
+      buttonDelete.className = "button-delete";
+      buttonDelete.setAttribute("data-idExperiencia", experiencia.idExperiencia);
+      buttonDelete.setAttribute("data-Perfil_matricula", experiencia.Perfil_matricula);
+      buttonDelete.addEventListener("click", deleteExperiencia);
+
+      divExperienciaButtons.append(buttonEnableUpdate)
+      divExperienciaButtons.append(buttonDelete)
+
+      divExperiencia.append(divExperienciaTexts)
+      divExperiencia.append(divExperienciaButtons)
+
+      divExperiencias.append(divExperiencia)
+
+
+    }
+  }).catch((error) => console.log(error));
 
 }
+
+const inicio = function(){
+  loadExperiencia()
+}
+
+window.onload = inicio
+
+const showCadastro = function(){
+  document.getElementById("container-cadastro").classList.remove("hide")
+  document.getElementById("btn-salvar").classList.remove("hide")
+}
+
+const buttonNova = document.getElementById("button-nova")
+buttonNova.onclick = showCadastro
+
+const cancelarOperacao = function(){
+  document.getElementById("container-cadastro").classList.add("hide")
+  document.getElementById("btn-salvar").classList.add("hide")
+  document.getElementById("btn-atualizar").classList.add("hide")
+}
+
+const buttonCancelar = document.getElementById("btn-cancelar")
+buttonCancelar.onclick = cancelarOperacao

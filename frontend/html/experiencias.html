@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang=”pt-br”>
 
 <head>
   <meta charset="UTF-8">
@@ -10,21 +10,24 @@
 </head>
 
 <body>
-  <div class="header">
+  <div>
     <img class="logo" src="../img/Linkivap.png" alt="logo univap">    
-    <h1>Experiência</h1>
+    <h1  class="header" >Experiências</h1>
     <h2 class="subtitle">Experiências anteriores</h2>
   </div>
   <div class="container-experiencias" id="container-experiencias">
   </div>  
-  <div class="container-cadastro">
-    <label for=" empresa">Empresa:</label>
+  <div class="container-button-add">
+    <button id="button-nova" class="button">Nova</button>
+  </div>
+  <div id="container-cadastro" class="container-cadastro hide">
+    <label for="empresa">Empresa:</label>
     <input type="text" id="empresa" name="empresa">
 
     <label for="cargo">Cargo:</label>
     <input type="text" id="cargo" name="cargo">
 
-    <label for="comentario">Descrição:</label>
+    <label for="comentario">Comentário:</label>
     <textarea id="comentario" name="comentario"></textarea>
 
     <div class="dates-forms">
@@ -39,7 +42,12 @@
       <input type="checkbox" id="atual" name="atual"> 
     </div>    
 
-    <button id="btn-salvar" class="button">Salvar</button>
+
+    <div class="container-cadastro-buttons">
+      <button id="btn-salvar" class="button hide">Salvar</button>
+      <button id="btn-atualizar" class="button hide">Atualizar</button>
+      <button id="btn-cancelar" class="button">Cancelar</button>
+    </div>
   </div>
 
 </body>
