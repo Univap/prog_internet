@@ -325,13 +325,16 @@ header .btnLogin-popup:hover{
     overflow: hidden;
 } */
 
-.comentario{
-    padding: 3px;
+.comentario {
+    padding: 3px 3px 1rem 3px;
     display: flex;
+    border-bottom: 1px solid #999;
+    margin: 1rem 0;
 }
 
 .trespontos{
     color: #fff;
+    text-decoration: none;
     display: flex;
     background: transparent;
     border: transparent;
@@ -340,6 +343,11 @@ header .btnLogin-popup:hover{
     margin-left: auto;
     padding: .3rem;
     cursor: pointer;
+}
+
+.trespontos a {
+    text-decoration: none;
+    color: white;
 }
 
 .pontos{
@@ -362,9 +370,10 @@ header .btnLogin-popup:hover{
     color: #ffffff;
     font-weight: 600;
     resize: none;
+    text-decoration: none;
 }
 
-.comentario a1{
+.conteudo_comentario:nth-child(2) {
     width: 100%;
     height: 100%;
     background: transparent;
@@ -377,7 +386,7 @@ header .btnLogin-popup:hover{
     resize: none;
 }
 
-.comentario a2{
+.conteudo_comentario:nth-child(3){
     width: 100%;
     height: 100%;
     background: transparent;

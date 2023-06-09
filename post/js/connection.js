@@ -1,3 +1,5 @@
+let idPost;
+
 function formatarData(date) {
     var dateTime = new Date(date);
 
@@ -86,7 +88,17 @@ function populateComments(data) {
         
         var commentRet = document.createElement('td');
         commentRet.classList.add('trespontos');
-        commentRet.innerHTML = '<p>...</p>';
+
+        // Link de exclusão
+        var deleteLink = document.createElement('a');
+        deleteLink.setAttribute('href', 'javascript:void(0)');
+        deleteLink.addEventListener('click', function() {
+            deleteComment(comment.id);
+        });
+        deleteLink.textContent = '...';
+        deleteLink.setAttribute('title', 'Clique aqui para excluir este comentário');
+
+        commentRet.appendChild(deleteLink);
         
         commentRow.appendChild(commentImg);
         commentRow.appendChild(commentCell);
@@ -175,6 +187,8 @@ function addComment() {
     var text = document.getElementById('caixa-comentario').value;
     var id_autor = 3;
 
+    document.getElementById('caixa-comentario').value = "";
+
     var data = {
         id: id_post,
         cont: text,
@@ -201,10 +215,34 @@ function addComment() {
     .catch(error => console.error(error));
 }
 
+function deleteComment(commentId) {
+    var data = { id: commentId };
+
+    fetch(`/comment/${commentId}`, {
+        method: 'DELETE',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Erro ao excluir comentário: ${response.status} ${response.statusText}`);
+        }
+        return response.text();
+    })
+    .then(data => {
+        console.log('Comentário excluído com sucesso!');
+        fetchComments(idPost);
+    })
+    .catch(error => console.error(error));
+}
+
 window.addEventListener('load', function(){
     let queryString = window.location.search;
     let urlParams = new URLSearchParams(queryString);
     let id = urlParams.get("id");
+    idPost = id;
 
     fetchPost(id);
     fetchComments(id);

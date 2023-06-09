@@ -68,7 +68,7 @@ app.post('/comments', function(req, res) {
     let id = req.body.id;
 
     // fetch comments data
-    var commentsSql = 'SELECT p.nome, c.Perfil_matricula, c.mensagem, c.momento FROM comentario as c LEFT JOIN perfil as p ON c.Perfil_matricula = p.matricula WHERE c.Post_idPost = ? ORDER BY momento DESC;';
+    var commentsSql = 'SELECT c.id, p.nome, c.Perfil_matricula, c.mensagem, c.momento FROM comentario as c LEFT JOIN perfil as p ON c.Perfil_matricula = p.matricula WHERE c.Post_idPost = ? ORDER BY momento DESC;';
     con.query(commentsSql, [id], function (err, commentsResult, commentsFields) {
         if (err) throw err;
 
